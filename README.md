@@ -5,6 +5,7 @@
 - **提交后只需等待，老师会安排时间审批**
 - 如果不熟悉github使用方式，可以咨询班主任老师
 - 每周五老师名下文件夹中会上传参考答案
+
 #### 作业格式
 ```
 张三/
@@ -19,4 +20,5 @@
     ├── 作业1.py
     └── 作业2.py
 ```
-[GitHub创建文件及文件夹](https://www.bilibili.com/video/BV1oyUfYoE2a)
+
+参考：<a href="[https://example.com](https://www.bilibili.com/video/BV1oyUfYoE2a)" target="_blank" rel="noopener">GitHub创建文件及文件夹</a>
