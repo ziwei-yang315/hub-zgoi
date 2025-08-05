@@ -21,4 +21,4 @@
     └── 作业2.py
 ```
 
-参考：<a href="[https://example.com](https://www.bilibili.com/video/BV1oyUfYoE2a)" target="_blank" rel="noopener">GitHub创建文件及文件夹</a>
+参考：<a href="https://www.bilibili.com/video/BV1oyUfYoE2a" target="_blank" rel="noopener">GitHub创建文件及文件夹</a>
