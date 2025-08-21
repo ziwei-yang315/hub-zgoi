@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 plt.style.use('ggplot')
 
 print("加载数据集...")
-# 加载数据集 - 请确保dataset.csv在相同目录下
+
 # 使用制表符作为分隔符，并指定列名
 df = pd.read_csv('dataset.csv', sep='\t', header=None, names=['text', 'label'])
 
