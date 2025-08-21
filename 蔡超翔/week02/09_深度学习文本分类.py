@@ -5,14 +5,14 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 
 # ... (Data loading and preprocessing remains the same) ...
-dataset = pd.read_csv("../Week01/dataset.csv", sep="\t", header=None)
+dataset = pd.read_csv("./dataset.csv", sep="\t", header=None)
 texts = dataset[0].tolist()
 string_labels = dataset[1].tolist()
 
 label_to_index = {label: i for i, label in enumerate(set(string_labels))}
 numerical_labels = [label_to_index[label] for label in string_labels]
 
-char_to_index = {'<pad>111': 0}
+char_to_index = {'<pad>': 0}
 for text in texts:
     for char in text:
         if char not in char_to_index:
@@ -79,6 +79,9 @@ model = SimpleClassifier(vocab_size, hidden_dim, output_dim)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.01)
 
+# 记录损失变化
+losses = []
+
 num_epochs = 10
 for epoch in range(num_epochs):
     model.train()
@@ -90,11 +93,20 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         running_loss += loss.item()
-        if idx % 50 == 0:
-            print(f"Batch 个数 {idx}, 当前Batch Loss: {loss.item()}")
 
+    avg_loss = running_loss / len(dataloader)
+    losses.append(avg_loss)  # 记录每个epoch的平均损失
+    print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {avg_loss:.4f}")
 
-    print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {running_loss / len(dataloader):.4f}")
+# 可视化损失变化
+import matplotlib.pyplot as plt
+
+plt.plot(range(1, num_epochs + 1), losses, label='Model Loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.title('Loss Change Over Epochs')
+plt.legend()
+plt.show()
 
 
 def classify_text(text, model, char_to_index, vocab_size, max_len, index_to_label):
