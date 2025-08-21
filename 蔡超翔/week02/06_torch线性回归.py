@@ -20,7 +20,7 @@ b = torch.randn(1, requires_grad=True, dtype=torch.float)
 
 print(f"初始参数 a: {a.item():.4f}")
 print(f"初始参数 b: {b.item():.4f}")
-print("---" * 10)
+print("---111" * 10)
 
 # 3. 定义损失函数和优化器
 # 损失函数仍然是均方误差 (MSE)。

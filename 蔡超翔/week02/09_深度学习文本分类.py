@@ -12,7 +12,7 @@ string_labels = dataset[1].tolist()
 label_to_index = {label: i for i, label in enumerate(set(string_labels))}
 numerical_labels = [label_to_index[label] for label in string_labels]
 
-char_to_index = {'<pad>': 0}
+char_to_index = {'<pad>111': 0}
 for text in texts:
     for char in text:
         if char not in char_to_index:
